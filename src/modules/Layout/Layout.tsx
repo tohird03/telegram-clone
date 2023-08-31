@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
-import { Avatar, Button, Layout as AntLayout, Menu, MenuProps, message } from 'antd';
+import { Avatar, Button, Layout as AntLayout, Menu, MenuProps } from 'antd';
 import Sider from 'antd/es/layout/Sider';
 import { Content } from 'antd/es/layout/layout';
 import './layout.scss'
@@ -13,7 +13,7 @@ import {
   UserOutlined,
   TeamOutlined,
 } from '@ant-design/icons'
-import { collection, getDoc, getDocs, limit, onSnapshot, orderBy, query, where } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import { db } from '../../Firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../constants';
@@ -37,8 +37,6 @@ export const Layout = observer(({ children }: Props) => {
   const [resizingSidebar, setResizingSidebar] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [unreadMessageCounts, setUnreadMessageCounts] = useState<{ [key: string]: number }>({});
-  const [unreadMessage, setUnreadMessage] = useState<any>([])
-  const [unreadMessageNew, setUnreadMessageNew] = useState<any>([])
   const navigate = useNavigate()
 
   const onSearch = async (value: string) => {

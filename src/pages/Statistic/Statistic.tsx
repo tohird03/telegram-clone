@@ -1,7 +1,7 @@
-import { logEvent, setUserProperties } from 'firebase/analytics';
-import { collection, doc, getDoc, onSnapshot, query } from 'firebase/firestore';
+import { collection, onSnapshot, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
-import { analytics, db } from '../../Firebase/firebase';
+import { db } from '../../Firebase/firebase';
+// @ts-ignore
 import { DualAxes } from '@ant-design/plots';
 import './statistic.scss'
 

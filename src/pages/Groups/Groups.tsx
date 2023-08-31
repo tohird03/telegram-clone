@@ -3,9 +3,8 @@ import { Avatar, Button, Image, message, Modal, Upload, UploadFile, UploadProps 
 import { CheckOutlined, ClockCircleOutlined, FileOutlined, SendOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons'
 import './groups.scss'
 import { useGetWidth } from '../../utils/getContentWidth';
-import { useNavigate, useParams } from 'react-router-dom';
 import { db, storage } from '../../Firebase/firebase';
-import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, updateDoc} from 'firebase/firestore';
 import { makeFullName } from '../../utils/general';
 import { authStore } from '../../store/auth';
 import { getFullDate } from '../../utils/getDateFormat';
