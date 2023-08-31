@@ -21,7 +21,6 @@ export const Statistic = () => {
         if (user.data && user.data.createdAt) {
           const createdAt = user.data.createdAt.toDate();
           const dateString = createdAt.toISOString().split('T')[0];
-
           if (!acc[dateString]) {
             acc[dateString] = [];
           }
