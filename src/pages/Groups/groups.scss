@@ -1,0 +1,234 @@
+.messages {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    min-height: 64px;
+    width: 100%;
+    background-color: #151D27;
+    padding: 10px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+  }
+  &__select-user {
+    color: rgb(206, 195, 195);
+  }
+  &__main {
+    flex-grow: 1;
+    padding: 20px;
+    padding-bottom: 10px;
+    height: 100%;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #1E3047;
+      border-radius: 5px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+  &__footer {
+    min-height: 64px;
+    width: 100%;
+    background-color: #151D27;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+  &__input {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+  }
+  &__textarea {
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+    letter-spacing: -0.02em;
+    color: rgb(0, 0, 0);
+    border: none;
+    resize: none;
+    outline: none;
+    padding: 4px 0;
+    color: white;
+    background-color: transparent;
+  }
+  &__send {
+    display: flex;
+    gap: 20px;
+  }
+  &__sender {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+
+    &-msg {
+      max-width: 400px;
+      min-width: 200px;
+      background-color: blue;
+      color: white;
+      padding: 8px 14px;
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+
+    }
+    &-desc {
+      margin-bottom: 5px;
+      word-wrap: break-word;
+    }
+    &-time {
+      font-size: 12px;
+      font-weight: 400;
+      margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  &__capture {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+    &-msg {
+      max-width: 400px;
+      min-width: 200px;
+      background-color: #151D27;
+      color: white;
+      padding: 8px 14px;
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    &-desc {
+      margin-bottom: 5px;
+      word-wrap: break-word;
+    }
+    &-time {
+      font-size: 12px;
+      font-weight: 400;
+      margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.messages__small-main {
+  border: 2px;
+  .messages__sender {
+      display: flex;
+      flex-direction: row-reverse;
+
+    &-msg {
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 0px;
+    }
+  }
+}
+
+.messages__avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  cursor: pointer;
+}
+
+.bottom__messages {
+  padding-top: 10px;
+}
+
+.user-avatar {
+  position: relative;
+  display: inline-block;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #00ff00;
+  border-radius: 50%;
+}
+
+.message__file {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.messages__sender-msg .ant-image-mask {
+  display: none;
+}
+.messages__capture .ant-image-mask {
+  display: none;
+}
+
+.message__image-file {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.ant-upload-list.ant-upload-list-text {
+  display: none;
+}
+
+.modal__send-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1E3047;
+}
+
+.send__file-textarea {
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid #555;
+  width: 100%;
+  border-radius: 5px;
+  color: #151D27;
+}
+
+.message__image-send-file {
+  object-fit: contain;
+  background-color: #00ff00;
+}
+
+.messages__sender-msg .check__messages span {
+  background-color: transparent !important;
+}
+
+.messages__sender-msg .check__messages {
+  background-color: transparent !important;
+  margin-left: 10px;
+}
+
+.group__header {
+  cursor: pointer;
+}

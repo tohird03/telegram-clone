@@ -1,0 +1,124 @@
+.layout {
+  height: 100vh;
+  &__sidebar {
+    background-color: #151d27 !important;
+    max-width: 800px !important;
+    min-width: 250px !important;
+    border-right: 1px solid black;
+    position: relative;
+    flex: initial !important;
+  }
+  &__sidebar-children {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+  }
+  &__sidebar-scroll {
+    width: 4px;
+    height: 100%;
+    cursor: col-resize;
+    position: absolute;
+    right: 0;
+    z-index: 20;
+    opacity: .2;
+    contain: strict;
+    user-select: none;
+    transition: background .2s cubic-bezier(.785,.135,.15,.86) .1s;
+    &:hover, .sidebar-hovered {
+      background-color: rgb(2, 141, 255);
+      cursor: col-resize;
+    }
+  }
+  &__search-wrapper {
+    padding-bottom: 20px;
+  }
+  .ant-layout-sider-children {
+    display: flex !important;
+    flex-direction: column;
+    background-color: #151d27 !important;
+  }
+  &__menu {
+    flex-grow: 1;
+    background-color: #151d27 !important;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #1E3047;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+  &__search input, span, button, input::placeholder {
+    background-color: #1E3047 !important;
+    color: white !important;
+    outline: none;
+  }
+  &__header {
+    background-color: #151d27 !important;
+  }
+  &__content {
+    background:  linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../assets/images/chat_bg.jpg');
+  }
+  &__bottom-menu {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+}
+
+.sidebar-hovered {
+  background-color: rgb(2, 141, 255);
+  cursor: col-resize;
+}
+
+.layout__main-content {
+  min-width: 400px;
+}
+
+.layout__sidebar-children .ant-menu-title-content {
+  background-color: transparent !important;
+  width: 100%;
+}
+
+.layout__sidebar-children .ant-menu-item.ant-menu-item-only-child {
+  &:hover {
+    background-color: #1d72db !important;
+  }
+}
+
+.ant-menu-item {
+  padding-left: 10px !important;
+}
+
+.layout__capture {
+  margin: 0 !important;
+}
+
+.unread__count {
+  position: absolute;
+  right: 10px;
+  background: blue;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.groups__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

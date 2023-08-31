@@ -1,0 +1,162 @@
+:root
+{
+  --bg-rotation:90deg;
+}
+
+
+.center-box{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  background-position: fixed;
+  align-content:center;
+  background-image:linear-gradient(180deg, lightblue 0%, pink 50%, darkblue 100%);
+  width:100vw;
+  height:100vh;
+  padding:0;
+
+}
+
+.story-icon__wrapper {
+  display: flex;
+  align-items: center;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #acb620;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+.story-img{
+  margin: 5px;
+  width:60px;
+  height:60px;
+  padding:5px;
+  border-radius:50%;
+  text-align:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+background: linear-gradient(var(--bg-rotation),
+  rgba(58,62,180,1) 0%, rgba(253,29,105,1) 50%, rgba(69,252,109,1) 100%);
+  strong{
+    display:none;
+    position:relative;
+    bottom:55%;
+    color:white;
+    font-family:"Segoe UI"
+  }
+
+
+  img{
+    border-radius:50%;
+  }
+  animation-duration:0.2s;
+  animation-name:padding-normal;
+
+  &:hover{
+      animation-name:padding-grow;
+    -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+    strong{
+    display:inline;
+  }
+    img{
+      filter:brightness(50%);
+    }
+
+  }
+}
+
+
+@keyframes padding-grow{
+  0%{
+    padding:5px;
+  }
+  100%{
+    padding:10px;
+  }
+}
+@keyframes padding-normal{
+   0%{
+    padding:10px;
+  }
+  100%{
+    padding:5px;
+  }
+}
+
+.story__user {
+  text-align: center;
+  color: white;
+}
+
+.story__show {
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 500px;
+}
+
+.story__item {
+  height: 100%;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.carousel.carousel-slider {
+  background-color: black;
+}
+
+.slider-wrapper.axis-horizontal, .carousel-root, .carousel.carousel-slider, .slider.animated {
+  height: 100% !important;
+}
+
+.story__shadow {
+  position: fixed;
+  top: 0;
+  inset-inline-end: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  z-index: 888;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75)
+}
+
+.carousel.carousel-slider {
+  overflow: initial;
+}
+
+.control-arrow.control-prev, .control-arrow.control-next {
+  background-color: transparent !important;
+}
+
+.carousel-status {
+  top: 0px !important;
+  right: 30px !important;
+  color: black !important;
+}
