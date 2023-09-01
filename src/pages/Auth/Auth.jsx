@@ -42,13 +42,14 @@ export const Auth = observer(() => {
       })
       .catch((error) => {
         setPhoneErr(true)
+        console.log(error, phone);
         message.open({
           type: 'error',
-          content: 'Telefon raqam noto\'g\' yoki nimadir noto\'g\'ri ketdi, 3 soniyadan so\'ng sahifa yangilanadi',
+          content: 'Telefon raqam noto\'g\'ri yoki nimadir noto\'g\'ri ketdi, 3 soniyadan so\'ng sahifa yangilanadi',
         });
-        setTimeout(() => {
-          window.location.reload()
-        }, 3000);
+        // setTimeout(() => {
+        //   window.location.reload()
+        // }, 3000);
       });
   };
 
