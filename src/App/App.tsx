@@ -1,4 +1,4 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import React, { useEffect } from 'react';
 import { Router } from '../router';
@@ -26,7 +26,6 @@ const App = observer(() => {
       setDoc(
         doc(db, "users", authStore?.user?.uid),
         {
-          email: 'Tohir',
           lastSeen: serverTimestamp(),
           online: false
         },
@@ -39,7 +38,6 @@ const App = observer(() => {
     setDoc(
       doc(db, "users", authStore?.user?.uid),
       {
-        email: 'Tohir',
         lastSeen: serverTimestamp(),
         online: true
       },
