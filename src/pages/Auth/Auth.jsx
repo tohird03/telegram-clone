@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState} from 'react'
 import { Button, Form, message, Typography } from 'antd';
 import './auth.scss';
 import { authDictionary } from './dictionary';
@@ -47,9 +47,9 @@ export const Auth = observer(() => {
           type: 'error',
           content: 'Telefon raqam noto\'g\'ri yoki nimadir noto\'g\'ri ketdi, 3 soniyadan so\'ng sahifa yangilanadi',
         });
-        // setTimeout(() => {
-        //   window.location.reload()
-        // }, 3000);
+        setTimeout(() => {
+          window.location.reload()
+        }, 3000);
       });
   };
 

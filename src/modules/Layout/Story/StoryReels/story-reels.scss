@@ -9,8 +9,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: white;
+  background-size: contain;
+  z-index: 110;
+}
+.reel-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 90;
 }
 .reel__title {
   display: flex;

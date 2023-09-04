@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from 'react'
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { observer } from 'mobx-react';
-import React, { useEffect, useState } from 'react'
 import { db } from '../../../../Firebase/firebase';
 import { authStore } from '../../../../store/auth';
 import './story-reels.scss'
@@ -17,11 +17,11 @@ export const StoryReels = observer(({ datas, stop, inter }: Props) => {
   const [loadingEl, setLoadingEl] = useState<any>(null)
   const [activeInter, setActiveInter] = useState(0)
   const handleLike = async () => {
-    const partnerStory = doc(db, 'story', authStore?.user?.uid);
-    const docSnapStory = await getDoc(partnerStory);
+    const storiesCollection = collection(db, 'story');
+    const querySnapshot = await getDocs(storiesCollection);
 
-    if (docSnapStory.exists()) {
-      const existingStoryData = docSnapStory.data();
+    querySnapshot.forEach(async (queryDocumentSnapshot) => {
+      const existingStoryData = queryDocumentSnapshot.data();
 
       const newStoryData = existingStoryData.story.map((el: any) => {
         if (el?.id === datas?.id) {
@@ -42,9 +42,11 @@ export const StoryReels = observer(({ datas, stop, inter }: Props) => {
         }
       });
 
+      const partnerStory = doc(db, 'story', queryDocumentSnapshot.id);
       await setDoc(partnerStory, { story: newStoryData }, { merge: true });
-    }
+    });
   };
+
 
   useEffect(() => {
     setLoadingEl(null)
@@ -79,9 +81,8 @@ export const StoryReels = observer(({ datas, stop, inter }: Props) => {
   }, [inter])
 
   return (
-    <>
-      {inter === activeInter && stop && loadingEl}
-      <div className="reel__container" style={{ backgroundImage: `url(${datas?.link})` }}>
+    <div>
+      <div className="reel__container"  style={{ backgroundImage: `url(${datas?.link})` }}>
         <div className="reel__title">
           <div className="reel__back-button">
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-narrow-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -140,9 +141,9 @@ export const StoryReels = observer(({ datas, stop, inter }: Props) => {
                 </svg>
               </div>
             </div>
-            <img src="https://i.scdn.co/image/ab67616d0000b2736227bea855e8e32fe0c4e81f" className="reel__audio-cover" />
+            <img alt="Audio" src="https://i.scdn.co/image/ab67616d0000b2736227bea855e8e32fe0c4e81f" className="reel__audio-cover" />
           </div>
         </div>
       </div>
-    </>)
+    </div>)
 })
